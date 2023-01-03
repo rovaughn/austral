@@ -26,10 +26,6 @@ install: $(BIN)
 	mkdir -p $(out)/bin
 	install -m 755 austral $(out)/bin/austral
 
-.PHONY: uninstall
-uninstall:
-	sudo rm /usr/local/bin/austral
-
 .PHONY: clean
 clean:
 	rm -rf $(BIN) _build lib/BuiltInModules.ml
