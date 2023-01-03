@@ -8,6 +8,7 @@
         default = pkgs.stdenv.mkDerivation {
           pname = "austral";
           version = "0.00";
+          makeFlags = ["PREFIX=$(out)"];
           buildInputs = [
             pkgs.dune_3
             pkgs.ocaml

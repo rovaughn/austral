@@ -23,9 +23,9 @@ check: $(BIN)
 
 .PHONY: install
 install: $(BIN)
-	mkdir -p $(out)/bin
-	install -m 755 $(BIN) $(out)/bin/austral
+	mkdir -p $(PREFIX)/bin
+	install -m 755 $(BIN) $(PREFIX)/bin/austral
 
 .PHONY: clean
 clean:
-	rm -rf $(BIN) _build lib/BuiltInModules.ml result
+	rm -rf $(BIN) _build lib/BuiltInModules.ml result .env.nix
