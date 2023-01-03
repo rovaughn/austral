@@ -22,7 +22,8 @@ test: $(BIN)
 
 .PHONY: install
 install: $(BIN)
-	install -m 755 austral /usr/local/bin/austral
+	mkdir -p $(out)/bin
+	install -m 755 austral $(out)/bin/austral
 
 .PHONY: uninstall
 uninstall:

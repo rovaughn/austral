@@ -1,5 +1,6 @@
-_build
-austral
 *~
-lib/BuiltInModules.ml
-.env.nix
+/.env.nix
+/_build
+/austral
+/lib/BuiltInModules.ml
+/result
