@@ -17,7 +17,8 @@ $(BIN): $(SRC)
 	cp _build/default/bin/austral.exe $(BIN)
 
 .PHONY: test
-test: $(BIN)
+check: $(BIN)
+	shellcheck $^
 	dune runtest
 
 .PHONY: install
