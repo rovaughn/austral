@@ -2,3 +2,4 @@ _build
 austral
 *~
 lib/BuiltInModules.ml
+.env.nix
