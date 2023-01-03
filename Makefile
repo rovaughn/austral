@@ -6,6 +6,11 @@ all: $(BIN)
 lib/BuiltInModules.ml: lib/builtin/*.aui lib/builtin/*.aum lib/prelude.h lib/prelude.c
 	python3 concat_builtins.py
 
+.PHONY: fix
+fix: *.sh
+	shfmt -i 2 -s -w $^
+	shellcheck $^
+
 $(BIN): $(SRC)
 	dune build
 	cp _build/default/bin/austral.exe $(BIN)

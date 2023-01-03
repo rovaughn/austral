@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-opam exec -- dune build
+dune build
 
 function compile() {
-    ./austral compile $1/$2.aui,$1/$2.aum --entrypoint=Example.$2:main --output=testbin
-    ./testbin > actual.txt
-    echo -n -e "$3" > expected.txt
-    diff actual.txt expected.txt
-    rm testbin
-    rm actual.txt
-    rm expected.txt
+  ./austral compile "$1/$2.aui,$1/$2.aum" --entrypoint="Example.$2:main" --output=testbin
+  ./testbin >actual.txt
+  echo -n -e "$3" >expected.txt
+  diff actual.txt expected.txt
+  rm testbin
+  rm actual.txt
+  rm expected.txt
 }
 
 compile examples/constant Constant ""
