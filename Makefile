@@ -8,17 +8,19 @@ lib/BuiltInModules.ml: lib/builtin/*.aui lib/builtin/*.aum lib/prelude.h lib/pre
 	python3 concat_builtins.py
 
 .PHONY: fix
-fix: *.sh
-	shfmt -i 2 -s -w $^
-	shellcheck $^
+fix: *.sh flake.nix
+	nixfmt --check flake.nix || nixfmt flake.nix
+	shfmt -i 2 -s -w *.sh
+	shellcheck *.sh
 
 $(BIN): $(SRC)
 	dune build
 	cp _build/default/bin/austral.exe $(BIN)
 
 .PHONY: test
-check: $(BIN)
-	shellcheck $^
+check: $(BIN) *.sh flake.nix
+	nixfmt --check flake.nix
+	shellcheck *.sh
 	dune runtest
 
 .PHONY: install

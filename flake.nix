@@ -11,16 +11,20 @@
           makeFlags = ["PREFIX=$(out)"];
           buildInputs = [
             pkgs.dune_3
+            pkgs.gnumake
+            pkgs.nixfmt
             pkgs.ocaml
             pkgs.ocamlPackages.batteries
             pkgs.ocamlPackages.findlib
-            pkgs.ocamlPackages.ounit2
             pkgs.ocamlPackages.menhir
+            pkgs.ocamlPackages.ounit2
             pkgs.ocamlPackages.ppx_deriving
             pkgs.ocamlPackages.ppx_deriving
             pkgs.ocamlPackages.ppx_sexp_conv
             pkgs.ocamlPackages.sexplib
             pkgs.python3
+            pkgs.shellcheck
+            pkgs.shfmt
           ];
           src = pkgs.lib.cleanSource ./.;
         };
@@ -32,6 +36,7 @@
             pkgs.ocaml
             pkgs.ocamlPackages.batteries
             pkgs.ocamlPackages.findlib
+            pkgs.ocamlPackages.menhir
             pkgs.ocamlPackages.ounit2
             pkgs.ocamlPackages.ppx_deriving
             pkgs.ocamlPackages.ppx_deriving
